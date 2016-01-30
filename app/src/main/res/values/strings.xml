@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Assembler</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_about_us">О нас</string>
+    <string name="title_activity_about_us">О нас</string>
+    <string name="about_us_text_footer">Since 2015.</string>
+    <string name="about_us_text">
+    Разработчик:ADA group\n
+        Версия:1.0\n
+        Связаться с нами:\n
+        ynotved@gmail.com\n</string>
+</resources>
