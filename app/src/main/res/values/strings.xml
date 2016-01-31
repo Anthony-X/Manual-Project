@@ -10,4 +10,14 @@
         Версия: Beta 0.1\n
         Связаться с нами:\n
         ynotved@gmail.com\n</string>
+    <string name="title_activity_slidein">SlideinActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_disc">DiscActivity</string>
+    <string name="title_activity_bookmark">BookmarkActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="assm">Assembler</string>
 </resources>

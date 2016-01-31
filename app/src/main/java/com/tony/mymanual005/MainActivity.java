@@ -3,7 +3,10 @@ package com.tony.mymanual005;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -15,6 +18,7 @@ import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
     //Создаем массив разделов:
+
     private String head_array[] = {
             " 1. Немного об ассемблере",
             " 2. Программная модель микропроцессора",
@@ -26,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             " 8. Описание директив",
             " 9. Ошибки трансляции"
     };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
