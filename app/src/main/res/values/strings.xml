@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Assembler Beta</string>
+    <string name="app_name">IT справочник</string>
     <string name="action_settings">Настройки</string>
     <string name="action_search">Поиск</string>
     <string name="action_about_us">О нас</string>
@@ -20,4 +20,8 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="assm">Assembler</string>
+    <string name="nav_discipline">Дисциплины</string>
+    <string name="nav_bookmark">Закладки</string>
+
+    <string name="dis_assembler">Assembler</string>
 </resources>

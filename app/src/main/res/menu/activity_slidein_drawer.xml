@@ -4,23 +4,17 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_camara"
             android:icon="@drawable/ic_school_24dp"
-            android:title="Дисциплины"  />
+            android:title="@string/nav_discipline"  />
         <item android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_grade_24dp"
-            android:title="Закладки" />
-        <!--<item android:id="@+id/nav_slideshow" android:icon="@android:drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-         <item android:id="@+id/nav_manage" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Tools" />-->
+            android:title="@string/nav_bookmark" />
     </group>
-
-    <item android:title="Поделиться">
+ <!--   <item android:title="Поделиться">
         <menu>
             <item android:id="@+id/nav_share" android:icon="@android:drawable/ic_menu_share"
                 android:title="Рассказать друзьям" />
             <item android:id="@+id/nav_send" android:icon="@android:drawable/ic_menu_send"
                 android:title="Отправить сообщение" />
         </menu>
-    </item>
-
+    </item>-->
 </menu>
