@@ -1,13 +1,9 @@
 package com.tony.mymanual005;
 
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -24,10 +20,7 @@ public class SlideinActivity extends FragmentActivity implements NavigationView.
     private fragmentDicp fragmentdicp = new fragmentDicp();
     private fragmentbm fragmentbm = new fragmentbm();
 
-    private Toolbar toolbar;
-
-    private FragmentManager manager;
-    private FragmentTransaction transaction;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +29,7 @@ public class SlideinActivity extends FragmentActivity implements NavigationView.
 
 
          toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+       /* setSupportActionBar(toolbar); Вызывает пустой метод*/
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -48,11 +40,11 @@ public class SlideinActivity extends FragmentActivity implements NavigationView.
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
     }
 
-    private void setSupportActionBar(Toolbar toolbar) {
-    }
+
+ /*   private void setSupportActionBar(Toolbar toolbar) {
+    } я*/
 
 
     @Override
@@ -64,9 +56,12 @@ public class SlideinActivity extends FragmentActivity implements NavigationView.
             super.onBackPressed();
         }
     }
+
+    //Решить проблему с созданим меню ...
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.slidein, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        super.onCreateOptionsMenu(menu);
         return true;
     }
 
@@ -97,12 +92,6 @@ public class SlideinActivity extends FragmentActivity implements NavigationView.
         } else if (id == R.id.nav_bookmark) {
             ftrans.replace(R.id.container, fragmentbm);
             toolbar.setTitle(R.string.nav_bookmark);
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.buttonshape) {
-
         }
         ftrans.commit();
 
