@@ -91,10 +91,10 @@ public class SlideinActivity extends FragmentActivity implements NavigationView.
         int id = item.getItemId();
         FragmentTransaction ftrans = getFragmentManager().beginTransaction();
 
-        if (id == R.id.nav_camara) {
+        if (id == R.id.nav_discipline) {
             ftrans.replace(R.id.container,fragmentdicp);
             toolbar.setTitle(R.string.nav_discipline);
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_bookmark) {
             ftrans.replace(R.id.container, fragmentbm);
             toolbar.setTitle(R.string.nav_bookmark);
         } else if (id == R.id.nav_slideshow) {
