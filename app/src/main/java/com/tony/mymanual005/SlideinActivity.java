@@ -57,7 +57,7 @@ public class SlideinActivity extends FragmentActivity implements NavigationView.
         }
     }
 
-    //Решить проблему с созданим меню ...
+    //Решить проблему с созданием меню ...
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);

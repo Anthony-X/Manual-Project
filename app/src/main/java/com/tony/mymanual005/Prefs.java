@@ -10,9 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 
 public class Prefs extends AppCompatActivity {
 
-    public static final String APP_PREFERENCES = "settings";
+  /*  public static final String APP_PREFERENCES = "settings";
     public static final String APP_PREFERENCES_TEXT_SIZE = "text_size";
-    private SharedPreferences mSettings;
+    private SharedPreferences mSettings;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,7 @@ public class Prefs extends AppCompatActivity {
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, new SettingsFragment())
                 .commit();
-        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+/*        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);*/
     }
 
     public static class SettingsFragment extends PreferenceFragment {
@@ -39,11 +39,11 @@ public class Prefs extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-        int fSize = Integer.parseInt(mSettings.getString(
+        /*int fSize = Integer.parseInt(mSettings.getString(
                 getString(R.string.key_text_size), "20"));
 
         SharedPreferences.Editor editor = mSettings.edit();
         editor.putInt(APP_PREFERENCES_TEXT_SIZE, fSize);
-        editor.apply();
+        editor.apply();*/
     }
 }

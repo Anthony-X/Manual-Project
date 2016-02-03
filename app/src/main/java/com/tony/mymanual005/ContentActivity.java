@@ -4,19 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,12 +26,10 @@ public class ContentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
-        webView = (WebView) findViewById(R.id.webView);
-
 
         Intent intent = getIntent();
+        webView = (WebView) findViewById(R.id.webView);
         //получаем строку и формируем имя ресурса
-
         res = intent.getIntExtra("head", 0);
         resName = "n" + intent.getIntExtra("head", 0);
         Log.i("name", resName);
@@ -63,16 +55,19 @@ public class ContentActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        Intent intent;
         switch (id){
             case R.id.action_about_us:
-                Intent intent = new Intent(ContentActivity.this,AboutUsActivity.class);
+                intent = new Intent(ContentActivity.this,AboutUsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.action_settings:
+                intent = new Intent(ContentActivity.this,Prefs.class);
                 startActivity(intent);
                 break;
         }
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -119,4 +114,16 @@ public class ContentActivity extends AppCompatActivity {
         return builder.toString();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        SharedPreferences prefs = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        int textSize = Integer.parseInt(prefs.getString(
+                getString(R.string.pref_text_size), "16"));
+        if(textSize<=26 && textSize>=10)
+        webView.getSettings().setDefaultFontSize(textSize);
+
+    }
 }
