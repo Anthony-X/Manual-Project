@@ -11,5 +11,6 @@
         android:title="Размер шрифта"
         android:summary="Устанавливает размер шрифта"
         android:defaultValue="16"
-        android:dialogTitle="Введите размер шрифта (от 10 до 26)" />
+        android:dialogTitle="Введите размер шрифта (от 10 до 26)"
+        android:inputType="number"/>
 </PreferenceScreen>

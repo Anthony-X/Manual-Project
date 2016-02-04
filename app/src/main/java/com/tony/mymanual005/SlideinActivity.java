@@ -29,12 +29,13 @@ public class SlideinActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slidein);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        setSupportActionBar(toolbar);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
@@ -43,6 +44,8 @@ public class SlideinActivity extends AppCompatActivity
 
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.content_frame, new fragmentDicp()).commit();
+        toolbar.setTitle(R.string.nav_discipline);
+
     }
 
 
@@ -62,19 +65,17 @@ public class SlideinActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        Intent intent;
         switch (id){
             case R.id.action_about_us:
-                Intent intent = new Intent(SlideinActivity.this,AboutUsActivity.class);
+                intent = new Intent(SlideinActivity.this,AboutUsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.action_settings:
+                intent = new Intent(this, Prefs.class);
                 startActivity(intent);
                 break;
         }
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, Prefs.class);
-            startActivity(intent);
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
     @Override
@@ -96,8 +97,14 @@ public class SlideinActivity extends AppCompatActivity
 
         if (id == R.id.nav_discipline) {
             fm.beginTransaction().replace(R.id.content_frame, new fragmentDicp()).commit();
+            toolbar.setTitle(R.string.nav_discipline);
         } else if (id == R.id.nav_bookmark) {
             fm.beginTransaction().replace(R.id.content_frame, new fragmentbm()).commit();
+            toolbar.setTitle(R.string.nav_bookmark);
+        }else if (id == R.id.nav_settings)
+        {
+            Intent intent = new Intent(this, Prefs.class);
+            startActivity(intent);
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
