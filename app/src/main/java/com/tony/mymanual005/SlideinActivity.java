@@ -1,10 +1,8 @@
 package com.tony.mymanual005;
 
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -49,8 +47,6 @@ public class SlideinActivity extends AppCompatActivity
     }
 
 
- /*   private void setSupportActionBar(Toolbar toolbar) {
-    } я*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
