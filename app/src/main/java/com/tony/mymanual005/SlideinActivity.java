@@ -12,16 +12,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.tony.mymanual005.fragments.fragmentContent;
 import com.tony.mymanual005.fragments.fragmentDicp;
 import com.tony.mymanual005.fragments.fragmentbm;
 
 public class SlideinActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private fragmentDicp fragmentdicp = new fragmentDicp();
-    private fragmentbm fragmentbm = new fragmentbm();
-
-    Toolbar toolbar;
+    public Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +28,7 @@ public class SlideinActivity extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setSupportActionBar(toolbar);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -91,12 +90,16 @@ public class SlideinActivity extends AppCompatActivity
         FragmentManager fm = getFragmentManager();
         int id = item.getItemId();
 
-        if (id == R.id.nav_discipline) {
+        if (id == R.id.nav_main) {
             fm.beginTransaction().replace(R.id.content_frame, new fragmentDicp()).commit();
-            toolbar.setTitle(R.string.nav_discipline);
+            toolbar.setTitle(R.string.nav_main);
         } else if (id == R.id.nav_bookmark) {
             fm.beginTransaction().replace(R.id.content_frame, new fragmentbm()).commit();
-            toolbar.setTitle(R.string.nav_bookmark);
+            toolbar.setTitle(R.string.nav_discipline);
+        }else if (id == R.id.nav_asm)
+        {
+            fm.beginTransaction().replace(R.id.content_frame, new fragmentContent()).commit();
+            toolbar.setTitle(R.string.asm);
         }else if (id == R.id.nav_settings)
         {
             Intent intent = new Intent(this, Prefs.class);
@@ -107,4 +110,9 @@ public class SlideinActivity extends AppCompatActivity
         return true;
     }
 
+    public void setTitleToolbar (String str){
+
+        toolbar.setTitle(str);
+
+    }
 }

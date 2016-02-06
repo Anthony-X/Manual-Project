@@ -2,14 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_discipline"
-            android:icon="@drawable/ic_school_24dp"
-            android:title="@string/nav_discipline"  />
+        <item android:id="@+id/nav_main"
+            android:icon="@drawable/ic_local_library_24dp"
+            android:title="Главная"  />
         <item android:id="@+id/nav_bookmark"
             android:icon="@drawable/ic_grade_24dp"
             android:title="@string/nav_bookmark" />
-    </group>
 
+
+    <item android:title="@string/nav_discipline">
+        <menu>
+            <item android:id="@+id/nav_asm"
+                android:icon="@drawable/ic_school_24dp"
+                android:title="@string/nav_asm" />
+        </menu>
+    </item>
+    </group>
 <item android:title="Дополнительно">
         <menu>
             <item android:id="@+id/nav_settings"

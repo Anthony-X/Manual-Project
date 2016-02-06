@@ -20,6 +20,7 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Нет закладок</string>
     <string name="assm">Assembler</string>
+    <string name="asm">Assembler</string>
     <string name="Cplus">C++</string>
     <string name="nav_discipline">Дисциплины</string>
     <string name="nav_bookmark">Закладки</string>
@@ -30,4 +31,6 @@
     <string name="pref_text_size">text_size</string>
     <string name="nav_settings">Настройки</string>
     <string name="nav_item_extra">Допольнительно</string>
+    <string name="nav_asm">Assembler</string>
+    <string name="nav_main">Главная</string>
 </resources>
