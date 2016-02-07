@@ -19,14 +19,12 @@
         android:alpha="0.5"
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="5dp"
-        android:paddingRight="10dp"
-        android:onClick="nextClick" />
+        android:paddingRight="10dp"/>
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/iB_previous"
-        android:onClick="previousClick"
         android:layout_gravity="left|bottom"
         android:src="@drawable/ic_fast_rewind_24dp"
         android:background="?android:attr/selectableItemBackground"

@@ -1,6 +1,8 @@
 package com.tony.mymanual005;
 
+
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -20,6 +22,8 @@ public class SlideinActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public Toolbar toolbar;
+    FragmentTransaction transaction;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +43,11 @@ public class SlideinActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        FragmentManager fm = getFragmentManager();
+
+
+       /* FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.content_frame, new fragmentDicp()).commit();
-        toolbar.setTitle(R.string.nav_discipline);
+        toolbar.setTitle(R.string.nav_discipline);*/
 
     }
 
@@ -88,31 +94,31 @@ public class SlideinActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         FragmentManager fm = getFragmentManager();
+        FragmentTransaction transaction = fm.beginTransaction();
         int id = item.getItemId();
 
         if (id == R.id.nav_main) {
-            fm.beginTransaction().replace(R.id.content_frame, new fragmentDicp()).commit();
+            transaction.replace(R.id.content_frame, new fragmentDicp());
             toolbar.setTitle(R.string.nav_main);
         } else if (id == R.id.nav_bookmark) {
-            fm.beginTransaction().replace(R.id.content_frame, new fragmentbm()).commit();
-            toolbar.setTitle(R.string.nav_discipline);
-        }else if (id == R.id.nav_asm)
-        {
-            fm.beginTransaction().replace(R.id.content_frame, new fragmentContent()).commit();
+            transaction.replace(R.id.content_frame, new fragmentbm());
+            toolbar.setTitle(R.string.nav_bookmark);
+        }else if (id == R.id.nav_asm) {
+            transaction.replace(R.id.content_frame, new fragmentContent());
             toolbar.setTitle(R.string.asm);
-        }else if (id == R.id.nav_settings)
+        }
+        transaction.addToBackStack(null);
+        transaction.commit();
+
+        if (id == R.id.nav_settings)
         {
             Intent intent = new Intent(this, Prefs.class);
             startActivity(intent);
         }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    public void setTitleToolbar (String str){
-
-        toolbar.setTitle(str);
-
-    }
 }

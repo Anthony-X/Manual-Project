@@ -1,7 +1,7 @@
 package com.tony.mymanual005.fragments;
 
 import android.app.Fragment;
-import android.content.Intent;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -12,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-import com.tony.mymanual005.ContentActivity;
 import com.tony.mymanual005.R;
 
 
@@ -34,7 +33,8 @@ public class fragmentContent extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rV = inflater.inflate(R.layout.fragment_content,container,false);
+        View rV = inflater.inflate(R.layout.fragment_content, container, false);
+
         // Получим идентификатор ListView
         ListView listView = (ListView) rV.findViewById(R.id.listView2);
         //устанавливаем массив в ListView
@@ -45,12 +45,15 @@ public class fragmentContent extends Fragment {
         //Обрабатываем щелчки на элементах ListView:
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> a, View v, int position, long id) {
-                Intent intent = new Intent();
-               intent.setClass(getActivity(), ContentActivity.class);
 
-                intent.putExtra("head", position);
-                //запускаем вторую активность
-                startActivity(intent);
+                fragmentContentTwo fCT = new fragmentContentTwo();
+                Bundle bundle = new Bundle();
+                bundle.putInt("head",position);
+                fCT.setArguments(bundle);
+
+
+                FragmentManager fm = getFragmentManager();
+                fm.beginTransaction().replace(R.id.content_frame, fCT ).commit();
             }
         });
 

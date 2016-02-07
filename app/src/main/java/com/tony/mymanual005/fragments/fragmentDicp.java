@@ -1,19 +1,15 @@
 package com.tony.mymanual005.fragments;
 
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.tony.mymanual005.MainActivity;
 import com.tony.mymanual005.R;
-import com.tony.mymanual005.SlideinActivity;
-
 
 public class fragmentDicp extends Fragment {
 
@@ -33,7 +29,10 @@ public class fragmentDicp extends Fragment {
 
                 FragmentManager fm = getFragmentManager();
                 fm.beginTransaction().replace(R.id.content_frame, new fragmentContent()).commit();
-               /* Изменение тайтла*/
+
+                if((((AppCompatActivity)getActivity()).getSupportActionBar())!=null)
+                ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.nav_asm);
+
             }});
 
         return rootView;
