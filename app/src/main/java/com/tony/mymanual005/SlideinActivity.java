@@ -22,7 +22,6 @@ public class SlideinActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public Toolbar toolbar;
-    FragmentTransaction transaction;
 
 
     @Override
@@ -45,10 +44,9 @@ public class SlideinActivity extends AppCompatActivity
 
 
 
-       /* FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.content_frame, new fragmentDicp()).commit();
-        toolbar.setTitle(R.string.nav_discipline);*/
-
+        toolbar.setTitle(R.string.nav_main);
     }
 
 
@@ -85,7 +83,12 @@ public class SlideinActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (getFragmentManager().getBackStackEntryCount() > 0 ){
+                getFragmentManager().popBackStack();
+            } else {
+                super.onBackPressed();
+            }
+
         }
     }
 
@@ -93,9 +96,9 @@ public class SlideinActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        int id = item.getItemId();
         FragmentManager fm = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
-        int id = item.getItemId();
 
         if (id == R.id.nav_main) {
             transaction.replace(R.id.content_frame, new fragmentDicp());
@@ -120,5 +123,6 @@ public class SlideinActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
 }

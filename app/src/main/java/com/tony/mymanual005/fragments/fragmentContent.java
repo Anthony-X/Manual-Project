@@ -16,7 +16,7 @@ import com.tony.mymanual005.R;
 
 
 
-public class fragmentContent extends Fragment {
+public class fragmentContent extends Fragment  {
 
     private String head_array[] = {
             " 1. Немного об ассемблере",
@@ -53,10 +53,11 @@ public class fragmentContent extends Fragment {
 
 
                 FragmentManager fm = getFragmentManager();
-                fm.beginTransaction().replace(R.id.content_frame, fCT ).commit();
+                fm.beginTransaction().replace(R.id.content_frame, fCT ).addToBackStack(null).commit();
             }
         });
 
         return rV;
     }
+
 }
