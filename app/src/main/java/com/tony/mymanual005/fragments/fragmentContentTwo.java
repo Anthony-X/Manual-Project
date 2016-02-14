@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,9 @@ public class fragmentContentTwo extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_contenttwo,container,false);
+
+        if((((AppCompatActivity)getActivity()).getSupportActionBar())!=null)
+            ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.nav_asm);
 
         iB_next = (ImageButton) rootView.findViewById(R.id.iB_next);
         iB_previous = (ImageButton) rootView.findViewById(R.id.iB_previous);

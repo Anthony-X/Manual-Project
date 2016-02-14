@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.tony.mymanual005.fragments.fragmentContent;
 import com.tony.mymanual005.fragments.fragmentDicp;
@@ -73,6 +74,19 @@ public class SlideinActivity extends AppCompatActivity
             case R.id.action_settings:
                 intent = new Intent(this, Prefs.class);
                 startActivity(intent);
+                break;
+            case R.id.action_bookmark:
+
+                if(item.isChecked())
+                {
+                    item.setIcon(R.drawable.ic_star_outline_24dp);
+                    item.setChecked(false);
+                }
+                else {
+                    item.setChecked(true);
+                    item.setIcon(R.drawable.ic_grade_24dp);
+                    Toast.makeText(SlideinActivity.this, "Сохранено", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);

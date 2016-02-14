@@ -28,11 +28,10 @@ public class fragmentDicp extends Fragment {
             public void onClick(View v) {
 
                 FragmentManager fm = getFragmentManager();
-                fm.beginTransaction().replace(R.id.content_frame, new fragmentContent()).commit();
+                fm.beginTransaction().replace(R.id.content_frame, new fragmentContent()).addToBackStack(null).commit();
 
              if((((AppCompatActivity)getActivity()).getSupportActionBar())!=null)
                 ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(R.string.nav_asm);
-
             }});
 
         return rootView;

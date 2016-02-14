@@ -4,10 +4,16 @@
     tools:context="com.tony.mymanual005.MainActivity">
     <item
         android:id="@+id/action_search"
-        android:orderInCategory="100"
+        android:orderInCategory="1"
         android:icon="@drawable/ic_search_24dp"
         android:title="@string/action_search"
         app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_bookmark"
+        android:orderInCategory="2"
+        android:icon="@drawable/ic_star_outline_24dp"
+        android:title="@string/nav_bookmark"
+        android:checkable="true"
+        app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
